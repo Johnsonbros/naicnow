@@ -79,7 +79,7 @@
         <h2 style="text-align: center; margin-bottom: 8px;">Membership Application</h2>
         <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Fill out the form below to join NAIC</p>
         
-        <form action="https://formspree.io/f/your-form-id" method="POST">
+        <form id="joinForm" onsubmit="return submitForm(event)">
           <div class="form-row">
             <div class="form-group">
               <label for="first-name">First Name *</label>
@@ -168,5 +168,49 @@
       </div>
     </div>
   </footer>
+<script>
+async function submitForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+  
+  const data = {
+    firstName: form.first_name.value,
+    lastName: form.last_name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    specialty: form.specialty.value,
+    location: form.location.value,
+    plan: form.plan.value,
+    experience: form.experience.value,
+    certifications: form.certifications.value,
+    bio: form.bio.value,
+    source: 'naicnow.org-membership',
+    timestamp: new Date().toISOString()
+  };
+  
+  try {
+    const res = await fetch('https://zeke.tail5b81a2.ts.net:8457/hooks/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    
+    if (res.ok) {
+      form.innerHTML = '<div style="text-align:center;padding:40px;"><div style="font-size:48px;margin-bottom:16px;">✓</div><h3 style="color:#22c55e;">Application Submitted!</h3><p style="color:#64748b;">We\'ll review your application and contact you within 24-48 hours.</p></div>';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    alert('Something went wrong. Please email hello@naicnow.org directly.');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+  return false;
+}
+</script>
 </body>
 </html>

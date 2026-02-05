@@ -82,7 +82,7 @@
         <h2 style="text-align: center; margin-bottom: 8px;">Request Directory Listing</h2>
         <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Fill out this form and we'll be in touch about getting you listed</p>
         
-        <form action="https://formspree.io/f/your-form-id" method="POST">
+        <form id="listForm" onsubmit="return submitListForm(event)">
           <div class="form-row">
             <div class="form-group">
               <label for="first-name">First Name *</label>
@@ -140,8 +140,6 @@
             <input type="text" id="certifications" name="certifications" placeholder="e.g., ICF-PCC, CTI, etc.">
           </div>
 
-          <input type="hidden" name="form_type" value="directory_listing">
-
           <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px;">
             Submit Listing Request
           </button>
@@ -157,5 +155,49 @@
       </div>
     </div>
   </footer>
+<script>
+async function submitListForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+  
+  const data = {
+    firstName: form.first_name.value,
+    lastName: form.last_name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    specialty: form.specialty.value,
+    location: form.location.value,
+    zip: form.zip.value,
+    website: form.website.value,
+    bio: form.bio.value,
+    certifications: form.certifications.value,
+    source: 'naicnow.org-directory-listing',
+    timestamp: new Date().toISOString()
+  };
+  
+  try {
+    const res = await fetch('https://zeke.tail5b81a2.ts.net:8457/hooks/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    
+    if (res.ok) {
+      form.innerHTML = '<div style="text-align:center;padding:40px;"><div style="font-size:48px;margin-bottom:16px;">✓</div><h3 style="color:#22c55e;">Request Submitted!</h3><p style="color:#64748b;">We\'ll review your information and contact you about listing options.</p></div>';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    alert('Something went wrong. Please email hello@naicnow.org directly.');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+  return false;
+}
+</script>
 </body>
 </html>
