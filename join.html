@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join NAIC - Become a Member</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">NAIC<span>now</span></a>
+      <ul class="nav-links">
+        <li><a href="directory.html">Find a Coach</a></li>
+        <li><a href="list-practice.html">List Your Practice</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="events.html">Events</a></li>
+      </ul>
+      <a href="join.html" class="nav-cta">Join Now</a>
+      <button class="mobile-menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Join NAIC</h1>
+      <p>Become part of the National Association of Independent Coaches</p>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Membership Plans</h2>
+        <p>Choose the plan that works best for you</p>
+      </div>
+      
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>Monthly</h3>
+          <p>Flexible month-to-month</p>
+          <div class="price">$15<span>/month</span></div>
+          <ul>
+            <li>Directory listing</li>
+            <li>Client referrals</li>
+            <li>Resource library access</li>
+            <li>Community forum</li>
+            <li>Monthly newsletter</li>
+            <li>Member badge</li>
+            <li>Event discounts</li>
+          </ul>
+          <a href="#join-form" class="btn btn-secondary" style="width: 100%;">Select Monthly</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <h3>Annual</h3>
+          <p>Save $45 per year!</p>
+          <div class="price">$135<span>/year</span></div>
+          <ul>
+            <li>Everything in Monthly</li>
+            <li>2 months FREE</li>
+            <li>Featured directory listing</li>
+            <li>Priority support</li>
+            <li>Free event admission (1/year)</li>
+            <li>Certification discounts</li>
+            <li>Early access to resources</li>
+          </ul>
+          <a href="#join-form" class="btn btn-primary" style="width: 100%;">Select Annual</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="join-form">
+    <div class="container">
+      <div class="form-container">
+        <h2 style="text-align: center; margin-bottom: 8px;">Membership Application</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Fill out the form below to join NAIC</p>
+        
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first_name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last_name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-group">
+            <label for="specialty">Coaching Specialty *</label>
+            <select id="specialty" name="specialty" required>
+              <option value="">Select your specialty...</option>
+              <option value="executive">Executive Coaching</option>
+              <option value="career">Professional Career Coaching</option>
+              <option value="life">Personal Life Coaching</option>
+              <option value="fitness">Fitness & Health Coaching</option>
+              <option value="multiple">Multiple Specialties</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location (City, State or "Remote")</label>
+            <input type="text" id="location" name="location" placeholder="e.g., Boston, MA or Remote">
+          </div>
+
+          <div class="form-group">
+            <label for="plan">Membership Plan *</label>
+            <select id="plan" name="plan" required>
+              <option value="">Select a plan...</option>
+              <option value="monthly">Monthly - $15/month</option>
+              <option value="annual">Annual - $135/year (Best Value)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">Years of Coaching Experience</label>
+            <select id="experience" name="experience">
+              <option value="">Select...</option>
+              <option value="0-1">Less than 1 year</option>
+              <option value="1-3">1-3 years</option>
+              <option value="3-5">3-5 years</option>
+              <option value="5-10">5-10 years</option>
+              <option value="10+">10+ years</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="certifications">Certifications (if any)</label>
+            <input type="text" id="certifications" name="certifications" placeholder="e.g., ICF-ACC, PCC, etc.">
+          </div>
+
+          <div class="form-group">
+            <label for="bio">Brief Bio / About Your Practice</label>
+            <textarea id="bio" name="bio" placeholder="Tell us about your coaching practice..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px;">
+            Submit Application
+          </button>
+
+          <p style="text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-top: 16px;">
+            We'll review your application and contact you within 24-48 hours with next steps.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding: 0;">
+        <p>&copy; 2026 National Association of Independent Coaches. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

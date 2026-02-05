@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Coach - NAIC Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">NAIC<span>now</span></a>
+      <ul class="nav-links">
+        <li><a href="directory.html">Find a Coach</a></li>
+        <li><a href="list-practice.html">List Your Practice</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="events.html">Events</a></li>
+      </ul>
+      <a href="join.html" class="nav-cta">Join Now</a>
+      <button class="mobile-menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Find a Coach</h1>
+      <p>Search our directory of certified independent coaches</p>
+    </div>
+  </section>
+
+  <section class="directory-filters">
+    <div class="container">
+      <div class="filters-row">
+        <div class="search-field">
+          <input type="text" id="location-filter" placeholder="Zip code or 'Remote'">
+        </div>
+        <div class="search-field">
+          <select id="category-filter">
+            <option value="">All Categories</option>
+            <option value="executive">Executive Coaching</option>
+            <option value="career">Professional Career Coaching</option>
+            <option value="life">Personal Life Coaching</option>
+            <option value="fitness">Fitness & Health Coaching</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="filterCoaches()">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="coach-grid" id="coach-list">
+      <!-- Sample Coach Cards -->
+      <div class="coach-card" data-category="executive" data-location="02101">
+        <div class="coach-avatar">👩‍💼</div>
+        <h3>Sarah Mitchell</h3>
+        <div class="coach-specialty">Executive Coaching</div>
+        <div class="coach-location">📍 Boston, MA (02101)</div>
+        <p>15+ years helping C-suite executives navigate leadership challenges and organizational change.</p>
+        <a href="#" class="btn btn-secondary btn-sm">View Profile</a>
+      </div>
+
+      <div class="coach-card" data-category="career" data-location="remote">
+        <div class="coach-avatar">👨‍💻</div>
+        <h3>Michael Chen</h3>
+        <div class="coach-specialty">Career Coaching</div>
+        <div class="coach-location">📍 Remote</div>
+        <p>Specializing in tech career transitions, interview preparation, and salary negotiation.</p>
+        <a href="#" class="btn btn-secondary btn-sm">View Profile</a>
+      </div>
+
+      <div class="coach-card" data-category="life" data-location="90210">
+        <div class="coach-avatar">🧘‍♀️</div>
+        <h3>Jennifer Adams</h3>
+        <div class="coach-specialty">Life Coaching</div>
+        <div class="coach-location">📍 Los Angeles, CA (90210)</div>
+        <p>Helping clients achieve work-life balance, set meaningful goals, and live authentically.</p>
+        <a href="#" class="btn btn-secondary btn-sm">View Profile</a>
+      </div>
+
+      <div class="coach-card" data-category="fitness" data-location="33101">
+        <div class="coach-avatar">💪</div>
+        <h3>David Rodriguez</h3>
+        <div class="coach-specialty">Fitness & Health Coaching</div>
+        <div class="coach-location">📍 Miami, FL (33101)</div>
+        <p>Certified wellness coach focusing on sustainable fitness, nutrition, and lifestyle changes.</p>
+        <a href="#" class="btn btn-secondary btn-sm">View Profile</a>
+      </div>
+
+      <div class="coach-card" data-category="executive" data-location="remote">
+        <div class="coach-avatar">👔</div>
+        <h3>Robert Kim</h3>
+        <div class="coach-specialty">Executive Coaching</div>
+        <div class="coach-location">📍 Remote</div>
+        <p>Former Fortune 500 executive helping leaders develop strategic thinking and team management.</p>
+        <a href="#" class="btn btn-secondary btn-sm">View Profile</a>
+      </div>
+
+      <div class="coach-card" data-category="career" data-location="10001">
+        <div class="coach-avatar">👩‍🎓</div>
+        <h3>Emily Watson</h3>
+        <div class="coach-specialty">Career Coaching</div>
+        <div class="coach-location">📍 New York, NY (10001)</div>
+        <p>Expert in career pivots, personal branding, and landing roles at top companies.</p>
+        <a href="#" class="btn btn-secondary btn-sm">View Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="for-coaches" style="margin-top: 60px;">
+    <div class="container" style="text-align: center;">
+      <h2>Are You a Coach?</h2>
+      <p style="opacity: 0.8; margin-bottom: 24px;">Get listed in our directory and connect with clients looking for your expertise.</p>
+      <a href="list-practice.html" class="btn btn-primary" style="background: var(--accent); color: var(--secondary);">List Your Practice</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding: 0;">
+        <p>&copy; 2026 National Association of Independent Coaches. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Parse URL params on load
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('cat')) {
+        document.getElementById('category-filter').value = params.get('cat');
+      }
+      if (params.get('loc')) {
+        document.getElementById('location-filter').value = params.get('loc');
+      }
+      filterCoaches();
+    };
+
+    function filterCoaches() {
+      const location = document.getElementById('location-filter').value.toLowerCase();
+      const category = document.getElementById('category-filter').value;
+      const cards = document.querySelectorAll('.coach-card');
+      
+      cards.forEach(card => {
+        const cardCat = card.dataset.category;
+        const cardLoc = card.dataset.location.toLowerCase();
+        
+        let show = true;
+        if (category && cardCat !== category) show = false;
+        if (location && !cardLoc.includes(location) && cardLoc !== 'remote') show = false;
+        
+        card.style.display = show ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -4,564 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NAIC - National Association of Independent Coaches</title>
-  <meta name="description" content="Join the National Association of Independent Coaches. Resources, community, and support for life coaches, business coaches, and executive coaches.">
+  <meta name="description" content="Find independent coaches or list your coaching practice. Executive, career, life, and fitness coaches nationwide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #0f172a;
-      --accent: #f59e0b;
-      --bg: #ffffff;
-      --bg-alt: #f8fafc;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --success: #10b981;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-      padding: 16px 0;
-    }
-
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .logo span {
-      color: var(--secondary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-cta {
-      background: var(--primary);
-      color: white;
-      padding: 10px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-
-    .nav-cta:hover {
-      background: var(--primary-dark);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 160px 0 100px;
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
-    }
-
-    .hero .container {
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      color: var(--secondary);
-    }
-
-    .hero h1 span {
-      color: var(--primary);
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 16px 32px;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--text);
-      border: 2px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    /* Stats */
-    .stats {
-      padding: 60px 0;
-      background: var(--secondary);
-      color: white;
-    }
-
-    .stats .container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      text-align: center;
-    }
-
-    .stat h3 {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
-    .stat p {
-      font-size: 1rem;
-      opacity: 0.8;
-      margin-top: 8px;
-    }
-
-    /* Benefits */
-    .benefits {
-      padding: 100px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-header h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      color: var(--secondary);
-    }
-
-    .section-header p {
-      font-size: 1.125rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    .benefit-card {
-      padding: 32px;
-      background: var(--bg-alt);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      transition: all 0.3s;
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    .benefit-icon {
-      width: 56px;
-      height: 56px;
-      background: var(--primary);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-
-    .benefit-card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--secondary);
-    }
-
-    .benefit-card p {
-      color: var(--text-muted);
-    }
-
-    /* Membership */
-    .membership {
-      padding: 100px 0;
-      background: var(--bg-alt);
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 60px;
-    }
-
-    .pricing-card {
-      background: white;
-      border-radius: 20px;
-      padding: 40px;
-      border: 2px solid var(--border);
-      position: relative;
-      transition: all 0.3s;
-    }
-
-    .pricing-card.featured {
-      border-color: var(--primary);
-      transform: scale(1.05);
-    }
-
-    .pricing-card.featured::before {
-      content: 'Most Popular';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--primary);
-      color: white;
-      padding: 4px 16px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .pricing-card h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .pricing-card .price {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin: 20px 0;
-    }
-
-    .pricing-card .price span {
-      font-size: 1rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .pricing-card ul {
-      list-style: none;
-      margin: 24px 0;
-    }
-
-    .pricing-card li {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .pricing-card li::before {
-      content: '✓';
-      color: var(--success);
-      font-weight: 700;
-    }
-
-    .pricing-card .btn {
-      width: 100%;
-      text-align: center;
-      margin-top: 24px;
-    }
-
-    /* CTA */
-    .cta {
-      padding: 100px 0;
-      background: var(--secondary);
-      color: white;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .cta p {
-      font-size: 1.25rem;
-      opacity: 0.8;
-      margin-bottom: 40px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Contact Form */
-    .contact {
-      padding: 100px 0;
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--bg-alt);
-      padding: 48px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--secondary);
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 14px 18px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    /* Footer */
-    footer {
-      padding: 60px 0 30px;
-      background: var(--secondary);
-      color: white;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 40px;
-    }
-
-    .footer-brand h3 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .footer-brand p {
-      opacity: 0.7;
-      line-height: 1.8;
-    }
-
-    .footer-links h4 {
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 12px;
-    }
-
-    .footer-links a {
-      color: white;
-      opacity: 0.7;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .footer-links a:hover {
-      opacity: 1;
-    }
-
-    .footer-bottom {
-      padding-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-      opacity: 0.6;
-      font-size: 0.875rem;
-    }
-
-    /* Mobile */
-    @media (max-width: 968px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .stats .container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .benefits-grid,
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .pricing-card.featured {
-        transform: none;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        padding: 120px 0 60px;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .stats .container {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .contact-form {
-        padding: 32px 24px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Navigation -->
   <nav>
     <div class="container">
-      <a href="#" class="logo">NAIC<span>now</span></a>
+      <a href="index.html" class="logo">NAIC<span>now</span></a>
       <ul class="nav-links">
-        <li><a href="#benefits">Benefits</a></li>
-        <li><a href="#membership">Membership</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="directory.html">Find a Coach</a></li>
+        <li><a href="list-practice.html">List Your Practice</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="events.html">Events</a></li>
       </ul>
-      <a href="#membership" class="nav-cta">Join Now</a>
+      <a href="join.html" class="nav-cta">Join Now</a>
+      <button class="mobile-menu-btn">☰</button>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero with Search -->
   <section class="hero">
     <div class="container">
-      <span class="hero-badge">🚀 Now Accepting Members</span>
-      <h1>The Home for <span>Independent Coaches</span></h1>
-      <p>Join a community of life coaches, business coaches, and executive coaches. Get resources, support, and connections to grow your practice.</p>
-      <div class="hero-buttons">
-        <a href="#membership" class="btn btn-primary">Become a Member</a>
-        <a href="#benefits" class="btn btn-secondary">Learn More</a>
+      <h1>Find Your <span>Perfect Coach</span></h1>
+      <p>Connect with certified independent coaches for executive, career, life, and fitness coaching. Search our nationwide directory.</p>
+      
+      <!-- Search Bar -->
+      <div class="search-box">
+        <div class="search-row">
+          <div class="search-field">
+            <label>Location</label>
+            <input type="text" id="location" placeholder="Zip code or 'Remote'">
+          </div>
+          <div class="search-field">
+            <label>Category</label>
+            <select id="category">
+              <option value="">All Categories</option>
+              <option value="executive">Executive Coaching</option>
+              <option value="career">Professional Career Coaching</option>
+              <option value="life">Personal Life Coaching</option>
+              <option value="fitness">Fitness & Health Coaching</option>
+            </select>
+          </div>
+          <button class="btn btn-primary search-btn" onclick="searchCoaches()">
+            🔍 Search Coaches
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2>Browse by Specialty</h2>
+        <p>Find the right coach for your goals</p>
+      </div>
+      <div class="category-grid">
+        <a href="directory.html?cat=executive" class="category-card">
+          <div class="category-icon">💼</div>
+          <h3>Executive Coaching</h3>
+          <p>Leadership development, C-suite transitions, organizational effectiveness</p>
+        </a>
+        <a href="directory.html?cat=career" class="category-card">
+          <div class="category-icon">📈</div>
+          <h3>Career Coaching</h3>
+          <p>Job transitions, interview prep, professional growth strategies</p>
+        </a>
+        <a href="directory.html?cat=life" class="category-card">
+          <div class="category-icon">🌟</div>
+          <h3>Life Coaching</h3>
+          <p>Personal development, work-life balance, goal achievement</p>
+        </a>
+        <a href="directory.html?cat=fitness" class="category-card">
+          <div class="category-icon">💪</div>
+          <h3>Fitness & Health</h3>
+          <p>Wellness coaching, nutrition guidance, fitness accountability</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Coaches CTA -->
+  <section class="for-coaches">
+    <div class="container">
+      <div class="cta-split">
+        <div class="cta-content">
+          <h2>Are You a Coach?</h2>
+          <p>Join the National Association of Independent Coaches and get listed in our directory. Connect with clients, access resources, and grow your practice.</p>
+          <div class="cta-buttons">
+            <a href="join.html" class="btn btn-primary">Join NAIC — $15/mo</a>
+            <a href="list-practice.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="cta-features">
+          <div class="feature">✓ Directory listing</div>
+          <div class="feature">✓ Client referrals</div>
+          <div class="feature">✓ Training & certifications</div>
+          <div class="feature">✓ Industry events</div>
+          <div class="feature">✓ Resource library</div>
+          <div class="feature">✓ Community access</div>
+        </div>
       </div>
     </div>
   </section>
@@ -571,162 +117,84 @@
     <div class="container">
       <div class="stat">
         <h3>500+</h3>
-        <p>Active Members</p>
+        <p>Coaches Listed</p>
       </div>
       <div class="stat">
         <h3>50</h3>
-        <p>States Represented</p>
+        <p>States Covered</p>
       </div>
       <div class="stat">
-        <h3>12+</h3>
-        <p>Coaching Niches</p>
+        <h3>4</h3>
+        <p>Specialties</p>
       </div>
       <div class="stat">
-        <h3>24/7</h3>
-        <p>Community Access</p>
+        <h3>1000+</h3>
+        <p>Clients Connected</p>
       </div>
     </div>
   </section>
 
-  <!-- Benefits -->
-  <section class="benefits" id="benefits">
+  <!-- Latest Articles Preview -->
+  <section class="articles-preview">
     <div class="container">
       <div class="section-header">
-        <h2>Why Join NAIC?</h2>
-        <p>We provide the resources and community you need to thrive as an independent coach.</p>
+        <h2>Latest from the Blog</h2>
+        <a href="articles.html" class="view-all">View All Articles →</a>
       </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">🤝</div>
-          <h3>Peer Community</h3>
-          <p>Connect with fellow independent coaches. Share experiences, get advice, and build lasting professional relationships.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">📚</div>
-          <h3>Resource Library</h3>
-          <p>Access templates, frameworks, and tools. From client contracts to session guides, we've got you covered.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🎓</div>
-          <h3>Continuing Education</h3>
-          <p>Monthly workshops, webinars, and training sessions to keep your skills sharp and certifications current.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">📣</div>
-          <h3>Marketing Support</h3>
-          <p>Get listed in our coach directory. Receive referrals from clients looking for independent coaches.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">💼</div>
-          <h3>Business Tools</h3>
-          <p>Discounts on coaching platforms, scheduling tools, and business software to run your practice efficiently.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🏆</div>
-          <h3>Credibility</h3>
-          <p>NAIC membership signals professionalism to potential clients. Display your badge with pride.</p>
-        </div>
+      <div class="articles-grid">
+        <article class="article-card">
+          <div class="article-category">Industry Trends</div>
+          <h3>The Rise of Independent Coaching in 2026</h3>
+          <p>How the coaching industry is evolving and what it means for independent practitioners.</p>
+          <a href="#">Read More →</a>
+        </article>
+        <article class="article-card">
+          <div class="article-category">Best Practices</div>
+          <h3>Building Your Coaching Practice from Scratch</h3>
+          <p>Essential steps for new coaches entering the independent coaching space.</p>
+          <a href="#">Read More →</a>
+        </article>
+        <article class="article-card">
+          <div class="article-category">Certifications</div>
+          <h3>Top Coaching Certifications for 2026</h3>
+          <p>Which credentials matter most to clients and how to get them.</p>
+          <a href="#">Read More →</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Membership -->
-  <section class="membership" id="membership">
+  <!-- Upcoming Events Preview -->
+  <section class="events-preview">
     <div class="container">
       <div class="section-header">
-        <h2>Membership Plans</h2>
-        <p>Choose the level that fits your practice. All plans include core benefits.</p>
+        <h2>Upcoming Events</h2>
+        <a href="events.html" class="view-all">View All Events →</a>
       </div>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <h3>Starter</h3>
-          <p>For new coaches building their practice</p>
-          <div class="price">$29<span>/month</span></div>
-          <ul>
-            <li>Community forum access</li>
-            <li>Resource library</li>
-            <li>Monthly newsletter</li>
-            <li>Member badge</li>
-            <li>Directory listing</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary">Get Started</a>
+      <div class="events-list">
+        <div class="event-card">
+          <div class="event-date">
+            <span class="month">MAR</span>
+            <span class="day">15</span>
+          </div>
+          <div class="event-info">
+            <h3>NAIC Annual Conference 2026</h3>
+            <p>📍 Boston, MA • 3-day event</p>
+          </div>
+          <a href="events.html" class="btn btn-secondary btn-sm">Details</a>
         </div>
-        <div class="pricing-card featured">
-          <h3>Professional</h3>
-          <p>For established independent coaches</p>
-          <div class="price">$79<span>/month</span></div>
-          <ul>
-            <li>Everything in Starter</li>
-            <li>All workshops & webinars</li>
-            <li>Partner discounts</li>
-            <li>Featured directory listing</li>
-            <li>Referral program access</li>
-            <li>1-on-1 onboarding call</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary">Join Now</a>
-        </div>
-        <div class="pricing-card">
-          <h3>Enterprise</h3>
-          <p>For coaching firms & teams</p>
-          <div class="price">$199<span>/month</span></div>
-          <ul>
-            <li>Everything in Professional</li>
-            <li>Up to 5 team members</li>
-            <li>Custom training sessions</li>
-            <li>Priority support</li>
-            <li>Co-marketing opportunities</li>
-            <li>Annual strategy session</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        <div class="event-card">
+          <div class="event-date">
+            <span class="month">APR</span>
+            <span class="day">8</span>
+          </div>
+          <div class="event-info">
+            <h3>Executive Coaching Certification Workshop</h3>
+            <p>📍 Virtual • 2-day intensive</p>
+          </div>
+          <a href="events.html" class="btn btn-secondary btn-sm">Details</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container">
-      <h2>Ready to Level Up Your Coaching Practice?</h2>
-      <p>Join hundreds of independent coaches who are growing their businesses together.</p>
-      <a href="#contact" class="btn btn-primary" style="background: var(--accent); color: var(--secondary);">Apply for Membership</a>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <h2>Get in Touch</h2>
-        <p>Have questions? Want to learn more? We'd love to hear from you.</p>
-      </div>
-      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="coaching-type">Coaching Specialty</label>
-          <select id="coaching-type" name="coaching-type">
-            <option value="">Select your specialty...</option>
-            <option value="life">Life Coaching</option>
-            <option value="business">Business Coaching</option>
-            <option value="executive">Executive Coaching</option>
-            <option value="career">Career Coaching</option>
-            <option value="health">Health & Wellness Coaching</option>
-            <option value="relationship">Relationship Coaching</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us about your coaching practice..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-      </form>
     </div>
   </section>
 
@@ -736,27 +204,30 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>NAICnow</h3>
-          <p>The National Association of Independent Coaches. Building community, providing resources, and supporting independent coaching professionals across America.</p>
+          <p>The National Association of Independent Coaches. Connecting coaches with clients and building a stronger coaching community.</p>
         </div>
         <div class="footer-links">
-          <h4>Association</h4>
+          <h4>Directory</h4>
           <ul>
-            <li><a href="#benefits">Benefits</a></li>
-            <li><a href="#membership">Membership</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="directory.html">Find a Coach</a></li>
+            <li><a href="list-practice.html">List Your Practice</a></li>
+            <li><a href="directory.html?cat=executive">Executive Coaches</a></li>
+            <li><a href="directory.html?cat=career">Career Coaches</a></li>
           </ul>
         </div>
         <div class="footer-links">
-          <h4>Resources</h4>
+          <h4>Members</h4>
           <ul>
-            <li><a href="#">Coach Directory</a></li>
-            <li><a href="#">Resource Library</a></li>
-            <li><a href="#">Events</a></li>
+            <li><a href="join.html">Join NAIC</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="#">Member Login</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>Connect</h4>
           <ul>
+            <li><a href="#">Contact Us</a></li>
             <li><a href="#">LinkedIn</a></li>
             <li><a href="#">Twitter</a></li>
             <li><a href="#">Facebook</a></li>
@@ -768,5 +239,21 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function searchCoaches() {
+      const location = document.getElementById('location').value;
+      const category = document.getElementById('category').value;
+      let url = 'directory.html?';
+      if (location) url += 'loc=' + encodeURIComponent(location) + '&';
+      if (category) url += 'cat=' + category;
+      window.location.href = url;
+    }
+    
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

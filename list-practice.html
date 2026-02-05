@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Your Practice - NAIC Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">NAIC<span>now</span></a>
+      <ul class="nav-links">
+        <li><a href="directory.html">Find a Coach</a></li>
+        <li><a href="list-practice.html">List Your Practice</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="events.html">Events</a></li>
+      </ul>
+      <a href="join.html" class="nav-cta">Join Now</a>
+      <button class="mobile-menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>List Your Practice</h1>
+      <p>Get found by clients searching for independent coaches</p>
+    </div>
+  </section>
+
+  <section class="container" style="padding: 60px 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+      
+      <div>
+        <h2 style="font-size: 1.75rem; margin-bottom: 24px;">Why List with NAIC?</h2>
+        
+        <div style="margin-bottom: 24px;">
+          <h3 style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; margin-bottom: 8px;">
+            <span style="font-size: 1.5rem;">🎯</span> Reach Qualified Clients
+          </h3>
+          <p style="color: var(--text-muted);">People searching our directory are actively looking for a coach. They're ready to invest in themselves.</p>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h3 style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; margin-bottom: 8px;">
+            <span style="font-size: 1.5rem;">📍</span> Location-Based Search
+          </h3>
+          <p style="color: var(--text-muted);">Clients can find you by zip code or filter for remote coaches. Get matched with people in your service area.</p>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h3 style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; margin-bottom: 8px;">
+            <span style="font-size: 1.5rem;">🏷️</span> Category Visibility
+          </h3>
+          <p style="color: var(--text-muted);">List under Executive, Career, Life, or Fitness coaching. Appear in searches for your specific specialty.</p>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h3 style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; margin-bottom: 8px;">
+            <span style="font-size: 1.5rem;">✨</span> Professional Profile
+          </h3>
+          <p style="color: var(--text-muted);">Showcase your bio, certifications, specialties, and contact info. Make a great first impression.</p>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h3 style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem; margin-bottom: 8px;">
+            <span style="font-size: 1.5rem;">🤝</span> NAIC Credibility
+          </h3>
+          <p style="color: var(--text-muted);">Being listed signals you're a vetted, professional coach. Build trust before the first conversation.</p>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 24px; border-radius: 12px; margin-top: 32px;">
+          <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Directory listing is included with NAIC membership</p>
+          <p style="color: var(--text-muted); margin-bottom: 16px;">$15/month or $135/year — cancel anytime</p>
+          <a href="join.html" class="btn btn-primary">Join & Get Listed</a>
+        </div>
+      </div>
+
+      <div class="form-container" style="margin: 0;">
+        <h2 style="text-align: center; margin-bottom: 8px;">Request Directory Listing</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Fill out this form and we'll be in touch about getting you listed</p>
+        
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first_name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last_name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-group">
+            <label for="specialty">Primary Coaching Specialty *</label>
+            <select id="specialty" name="specialty" required>
+              <option value="">Select your specialty...</option>
+              <option value="executive">Executive Coaching</option>
+              <option value="career">Professional Career Coaching</option>
+              <option value="life">Personal Life Coaching</option>
+              <option value="fitness">Fitness & Health Coaching</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location *</label>
+            <input type="text" id="location" name="location" placeholder="City, State or 'Remote'" required>
+          </div>
+
+          <div class="form-group">
+            <label for="zip">Zip Code (if applicable)</label>
+            <input type="text" id="zip" name="zip" placeholder="e.g., 02101">
+          </div>
+
+          <div class="form-group">
+            <label for="website">Website (optional)</label>
+            <input type="url" id="website" name="website" placeholder="https://yoursite.com">
+          </div>
+
+          <div class="form-group">
+            <label for="bio">About Your Practice *</label>
+            <textarea id="bio" name="bio" placeholder="Tell potential clients about your coaching approach, experience, and who you help..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="certifications">Certifications</label>
+            <input type="text" id="certifications" name="certifications" placeholder="e.g., ICF-PCC, CTI, etc.">
+          </div>
+
+          <input type="hidden" name="form_type" value="directory_listing">
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px;">
+            Submit Listing Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding: 0;">
+        <p>&copy; 2026 National Association of Independent Coaches. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
