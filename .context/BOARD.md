@@ -13,11 +13,10 @@
 ## 📋 To Do
 
 - [ ] Add member testimonials/success stories
-- [ ] Create resources/downloads section
 - [ ] Add event registration forms
-- [ ] SEO optimization (meta tags, sitemap)
 - [ ] Newsletter signup integration
 - [ ] Social media links
+- [ ] Create OG image for social sharing
 
 ## ✅ Done
 
@@ -30,6 +29,8 @@
 - [x] 6 blog articles with real content
 - [x] Resources page (free downloads + certification courses)
 - [x] Navigation updated across all pages
+- [x] Full SEO overhaul (sitemap, robots.txt, meta tags, Open Graph, schema markup)
+- [x] Umami analytics integration
 
 ## 🧊 Backlog
 
